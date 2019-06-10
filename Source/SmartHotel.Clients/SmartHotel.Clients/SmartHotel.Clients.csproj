@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>SmartHotel.Clients.Core</AssemblyName>
+    <RootNamespace>SmartHotel.Clients.Core</RootNamespace>
+    <Configurations>Debug;Release;UI Test;UI-Test</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <XFDisableTargetsValidation>True</XFDisableTargetsValidation>
+  </PropertyGroup>
+  <Import Project="..\..\..\Xamarin.Forms\.nuspec\Xamarin.Forms.DefaultItems.props" />
+  <Import Project="..\..\..\Xamarin.Forms\.nuspec\Xamarin.Forms.DefaultItems.targets" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UI Test|AnyCPU'">
+    <DefineConstants>TRACE;IS_UI_TEST;</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\GreetingMessage.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\GreetingMessage.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference ExcludeAssets="All" Include="Xamarin.Forms" Version="4.0.0.425677">
+    </PackageReference>
+    <PackageReference ExcludeAssets="All" Include="Xamarin.Forms.Maps" Version="4.0.0.425677">
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference ReferenceOutputAssembly="False" Include="..\..\..\Xamarin.Forms\Xamarin.Forms.Build.Tasks\Xamarin.Forms.Build.Tasks.csproj" />
+    <ProjectReference Include="..\..\..\Xamarin.Forms\Xamarin.Forms.Core\Xamarin.Forms.Core.csproj" />
+    <ProjectReference Include="..\..\..\Xamarin.Forms\Xamarin.Forms.CustomAttributes\Xamarin.Forms.CustomAttributes.csproj" />
+    <ProjectReference Include="..\..\..\Xamarin.Forms\Xamarin.Forms.Maps\Xamarin.Forms.Maps.csproj" />
+    <ProjectReference Include="..\..\..\Xamarin.Forms\Xamarin.Forms.Xaml\Xamarin.Forms.Xaml.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AppShell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+
+  <Import Project="..\..\..\Xamarin.Forms\.nuspec\Xamarin.Forms.targets" Condition="'$(BuildingInsideVisualStudio)' == 'true'" />
+  <Import Project="..\..\..\Xamarin.Forms\.nuspec\Xamarin.Forms.targets" Condition="'$(BuildingInsideVisualStudio)' != 'true'" />
+</Project>
