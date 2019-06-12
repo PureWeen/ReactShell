@@ -4,12 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+			 xmlns:pages="clr-namespace:SmartHotel.Clients.Core.Pages"
              x:Class="SmartHotel.Clients.Core.AppShell">
-    <ContentPage>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage>
+
+	<FlyoutItem>
+		<Tab>
+			<ShellContent Route="HomePageViewModel"  ContentTemplate="{DataTemplate pages:HomePage}"></ShellContent>
+		</Tab>
+	</FlyoutItem>
 </Shell>
