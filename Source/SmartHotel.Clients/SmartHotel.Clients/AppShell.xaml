@@ -7,9 +7,11 @@
 			 xmlns:pages="clr-namespace:SmartHotel.Clients.Core.Pages"
              x:Class="SmartHotel.Clients.Core.AppShell">
 
-	<FlyoutItem>
-		<Tab>
+	<TabBar>
+		<ShellContent Route="LoginPageViewModel"  ContentTemplate="{DataTemplate pages:LoginPage}"></ShellContent>
+	</TabBar>
+	<TabBar>
 			<ShellContent Route="HomePageViewModel"  ContentTemplate="{DataTemplate pages:HomePage}"></ShellContent>
-		</Tab>
-	</FlyoutItem>
+		
+	</TabBar>
 </Shell>

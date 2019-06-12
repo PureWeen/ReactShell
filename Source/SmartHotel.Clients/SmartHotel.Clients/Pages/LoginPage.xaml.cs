@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using System.ComponentModel;
 using Xamarin.Forms.Xaml;
-using SmartHotel.Clients.Core.Services;
 
-namespace SmartHotel.Clients.Core
+namespace SmartHotel.Clients.Core.Pages
 {
-    public partial class AppShell : Shell
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoginPage : ContentPage
     {
-        public AppShell()
+        public LoginPage()
         {
             InitializeComponent();
         }
