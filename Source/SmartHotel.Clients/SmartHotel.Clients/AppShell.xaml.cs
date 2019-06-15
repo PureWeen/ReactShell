@@ -15,6 +15,7 @@ namespace SmartHotel.Clients.Core
     {
         public AppShell()
         {
+            this.SetNavigationService(new CustomNavigationServices());
             InitializeComponent();
         }
     }
