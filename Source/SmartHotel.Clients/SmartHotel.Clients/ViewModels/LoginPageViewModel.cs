@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Input;
 using ReactiveUI;
 
-namespace SmartHotel.Clients.Core.ViewModels
+namespace Shopanizer.ViewModels
 {
     public class LoginPageViewModel : ViewModelBase
     {

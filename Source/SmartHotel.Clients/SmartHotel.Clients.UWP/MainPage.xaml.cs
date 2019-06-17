@@ -1,4 +1,4 @@
-﻿using SmartHotel.Clients.Core;
+﻿using Shopanizer;
 using Windows.Foundation;
 using Windows.Foundation.Metadata;
 using Windows.UI;

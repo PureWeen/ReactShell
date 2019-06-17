@@ -1,4 +1,4 @@
-﻿using SmartHotel.Clients.Core;
+﻿using Shopanizer;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 //TODO SHANE can we make this work?

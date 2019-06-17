@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.ComponentModel;
 using Xamarin.Forms.Xaml;
-using SmartHotel.Clients.Core.Services;
+using Shopanizer.Services;
 
-namespace SmartHotel.Clients.Core
+namespace Shopanizer
 {
     public partial class AppShell : Shell
     {

@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>SmartHotel.Clients.Core</AssemblyName>
-    <RootNamespace>SmartHotel.Clients.Core</RootNamespace>
+    <AssemblyName>Shopanizer</AssemblyName>
+    <RootNamespace>Shopanizer</RootNamespace>
     <Configurations>Debug;Release;UI Test;UI-Test</Configurations>
   </PropertyGroup>
   <PropertyGroup>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SmartHotel.Clients.Core.ViewModels
+namespace Shopanizer.ViewModels
 {
     public class HomePageViewModel : ViewModelBase
     {

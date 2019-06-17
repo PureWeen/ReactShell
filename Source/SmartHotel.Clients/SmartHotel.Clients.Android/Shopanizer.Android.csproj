@@ -163,9 +163,9 @@
       <Project>{0e16e70a-d6dd-4323-ad5d-363abff42d6a}</Project>
       <Name>Xamarin.Forms.Platform.Android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartHotel.Clients\SmartHotel.Clients.csproj">
+    <ProjectReference Include="..\SmartHotel.Clients\Shopanizer.csproj">
       <Project>{7ADA23CF-CB3D-4898-822F-915E251ED8F1}</Project>
-      <Name>SmartHotel.Clients</Name>
+      <Name>Shopanizer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

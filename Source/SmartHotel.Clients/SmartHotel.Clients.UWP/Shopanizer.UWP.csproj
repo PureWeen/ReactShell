@@ -300,9 +300,9 @@
       <Project>{00d8d049-ffaa-4759-8fc9-1eca30777f72}</Project>
       <Name>Xamarin.Forms.Platform.UAP</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartHotel.Clients\SmartHotel.Clients.csproj">
+    <ProjectReference Include="..\SmartHotel.Clients\Shopanizer.csproj">
       <Project>{7ada23cf-cb3d-4898-822f-915e251ed8f1}</Project>
-      <Name>SmartHotel.Clients</Name>
+      <Name>Shopanizer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

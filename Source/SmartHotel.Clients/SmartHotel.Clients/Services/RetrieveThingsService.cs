@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SmartHotel.Clients.Core.Services
+namespace Shopanizer.Services
 {
-    class RetrieveThingsService
+    public class RetrieveThingsService
     {
+
     }
 }

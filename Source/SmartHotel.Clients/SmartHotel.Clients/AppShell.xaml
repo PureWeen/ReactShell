@@ -4,14 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-			 xmlns:pages="clr-namespace:SmartHotel.Clients.Core.Pages"
-             x:Class="SmartHotel.Clients.Core.AppShell">
+			 xmlns:pages="clr-namespace:Shopanizer.Pages"
+             x:Class="Shopanizer.AppShell">
 
 	<TabBar>
 		<ShellContent Route="LoginPageViewModel"  ContentTemplate="{DataTemplate pages:LoginPage}"></ShellContent>
 	</TabBar>
 	<TabBar>
-			<ShellContent Route="HomePageViewModel"  ContentTemplate="{DataTemplate pages:HomePage}"></ShellContent>
-		
+		<ShellContent Route="HomePageViewModel"  ContentTemplate="{DataTemplate pages:HomePage}"></ShellContent>
 	</TabBar>
 </Shell>

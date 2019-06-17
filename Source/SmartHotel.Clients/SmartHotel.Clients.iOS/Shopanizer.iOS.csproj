@@ -238,9 +238,9 @@
       <Project>{67d1f711-1744-42d4-bb77-a26e36068074}</Project>
       <Name>Xamarin.Forms.Xaml</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartHotel.Clients\SmartHotel.Clients.csproj">
+    <ProjectReference Include="..\SmartHotel.Clients\Shopanizer.csproj">
       <Project>{7ADA23CF-CB3D-4898-822F-915E251ED8F1}</Project>
-      <Name>SmartHotel.Clients</Name>
+      <Name>Shopanizer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHotel.Clients.Android", "SmartHotel.Clients\SmartHotel.Clients.Android\SmartHotel.Clients.Android.csproj", "{7E4A172B-1268-49C2-87BE-E563700BB22C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopanizer.Android", "SmartHotel.Clients\SmartHotel.Clients.Android\Shopanizer.Android.csproj", "{7E4A172B-1268-49C2-87BE-E563700BB22C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartHotel.Clients", "SmartHotel.Clients\SmartHotel.Clients\SmartHotel.Clients.csproj", "{7ADA23CF-CB3D-4898-822F-915E251ED8F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopanizer", "SmartHotel.Clients\SmartHotel.Clients\Shopanizer.csproj", "{7ADA23CF-CB3D-4898-822F-915E251ED8F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHotel.Clients.UWP", "SmartHotel.Clients\SmartHotel.Clients.UWP\SmartHotel.Clients.UWP.csproj", "{0D0C7A31-009A-4A19-9663-0F99791FAAC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopanizer.UWP", "SmartHotel.Clients\SmartHotel.Clients.UWP\Shopanizer.UWP.csproj", "{0D0C7A31-009A-4A19-9663-0F99791FAAC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHotel.Clients.iOS", "SmartHotel.Clients\SmartHotel.Clients.iOS\SmartHotel.Clients.iOS.csproj", "{99CB58D3-40AE-46B4-BE78-83A0FE0B8F52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopanizer.iOS", "SmartHotel.Clients\SmartHotel.Clients.iOS\Shopanizer.iOS.csproj", "{99CB58D3-40AE-46B4-BE78-83A0FE0B8F52}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{04B6A04C-25EC-4447-9C72-2C854B0E8F8A}"
 EndProject

@@ -1,12 +1,12 @@
-﻿using SmartHotel.Clients.Core.Services;
-using SmartHotel.Clients.Core.ViewModels;
+﻿using Shopanizer.Services;
+using Shopanizer.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace SmartHotel.Clients.Core.Services
+namespace Shopanizer.Services
 {
     public class CustomNavigationServices : ShellNavigationService
     {
