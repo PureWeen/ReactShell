@@ -8438,26 +8438,26 @@ namespace SmartHotel.Clients.Droid
 			// aapt resource value: 0x7f020056
 			public const int avd_hide_password = 2130837590;
 			
-			// aapt resource value: 0x7f0200e9
-			public const int avd_hide_password_1 = 2130837737;
+			// aapt resource value: 0x7f0200ec
+			public const int avd_hide_password_1 = 2130837740;
 			
-			// aapt resource value: 0x7f0200ea
-			public const int avd_hide_password_2 = 2130837738;
+			// aapt resource value: 0x7f0200ed
+			public const int avd_hide_password_2 = 2130837741;
 			
-			// aapt resource value: 0x7f0200eb
-			public const int avd_hide_password_3 = 2130837739;
+			// aapt resource value: 0x7f0200ee
+			public const int avd_hide_password_3 = 2130837742;
 			
 			// aapt resource value: 0x7f020057
 			public const int avd_show_password = 2130837591;
 			
-			// aapt resource value: 0x7f0200ec
-			public const int avd_show_password_1 = 2130837740;
+			// aapt resource value: 0x7f0200ef
+			public const int avd_show_password_1 = 2130837743;
 			
-			// aapt resource value: 0x7f0200ed
-			public const int avd_show_password_2 = 2130837741;
+			// aapt resource value: 0x7f0200f0
+			public const int avd_show_password_2 = 2130837744;
 			
-			// aapt resource value: 0x7f0200ee
-			public const int avd_show_password_3 = 2130837742;
+			// aapt resource value: 0x7f0200f1
+			public const int avd_show_password_3 = 2130837745;
 			
 			// aapt resource value: 0x7f020058
 			public const int ball = 2130837592;
@@ -8843,11 +8843,11 @@ namespace SmartHotel.Clients.Droid
 			// aapt resource value: 0x7f0200d7
 			public const int notification_icon_background = 2130837719;
 			
-			// aapt resource value: 0x7f0200e7
-			public const int notification_template_icon_bg = 2130837735;
+			// aapt resource value: 0x7f0200ea
+			public const int notification_template_icon_bg = 2130837738;
 			
-			// aapt resource value: 0x7f0200e8
-			public const int notification_template_icon_low_bg = 2130837736;
+			// aapt resource value: 0x7f0200eb
+			public const int notification_template_icon_low_bg = 2130837739;
 			
 			// aapt resource value: 0x7f0200d8
 			public const int notification_tile_bg = 2130837720;
@@ -8886,13 +8886,22 @@ namespace SmartHotel.Clients.Droid
 			public const int switch_on = 2130837731;
 			
 			// aapt resource value: 0x7f0200e4
-			public const int thumb_slider = 2130837732;
+			public const int tab_about = 2130837732;
 			
 			// aapt resource value: 0x7f0200e5
-			public const int tooltip_frame_dark = 2130837733;
+			public const int tab_feed = 2130837733;
 			
 			// aapt resource value: 0x7f0200e6
-			public const int tooltip_frame_light = 2130837734;
+			public const int thumb_slider = 2130837734;
+			
+			// aapt resource value: 0x7f0200e7
+			public const int tooltip_frame_dark = 2130837735;
+			
+			// aapt resource value: 0x7f0200e8
+			public const int tooltip_frame_light = 2130837736;
+			
+			// aapt resource value: 0x7f0200e9
+			public const int xamarin_logo = 2130837737;
 			
 			static Drawable()
 			{

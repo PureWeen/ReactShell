@@ -4,9 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Shopanizer.LoginPage">
+             x:Class="Shopanizer.LoginPage"
+			 Visual="Material">
     <ContentPage.Content>
         <StackLayout>
+			<Entry Placeholder="Username:"></Entry>
+			<Entry Placeholder="Password:"></Entry>
             <Button Text="Login" Command="{Binding LoginCommand}" />
         </StackLayout>
     </ContentPage.Content>

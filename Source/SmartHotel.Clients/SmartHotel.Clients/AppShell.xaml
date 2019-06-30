@@ -4,50 +4,68 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-			 xmlns:pages="clr-namespace:Shopanizer"
+			 xmlns:local="clr-namespace:Shopanizer"
              x:Class="Shopanizer.AppShell">
 
-	<TabBar>
-		<ShellContent Route="LoginPageViewModel"></ShellContent>
-	</TabBar>
 	
+	<!-- 
+        Styles and Resources 
+    -->
+	<Shell.Resources>
+		<ResourceDictionary>
+			<Color x:Key="NavigationPrimary">#2196F3</Color>
+			<Style x:Key="BaseStyle" TargetType="Element">
+				<Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
+				<Setter Property="Shell.ForegroundColor" Value="White" />
+				<Setter Property="Shell.TitleColor" Value="White" />
+				<Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+				<Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+				<Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+				<Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+				<Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+				<Setter Property="Shell.TabBarTitleColor" Value="White"/>
+			</Style>
+			<Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+		</ResourceDictionary>
+	</Shell.Resources>
+	<!-- Your Pages -->
 	<TabBar>
-		<ShellContent Route="LoginPageViewModel">
-			<ShellItem>
-				<ShellSection>
-					<ShellContent></ShellContent>
-				</ShellSection>
-			</ShellItem>
-		</ShellContent>
+		<Tab Title="Browse" Icon="tab_feed.png">
+			<ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
+		</Tab>
+		<Tab Title="About" Icon="tab_about.png">
+			<ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+		</Tab>
 	</TabBar>
 
-	<FlyoutItem Route="tabsandwich" Title="Tab Sandwich" FlyoutIcon="iconXamarin.png" Style="{StaticResource TertiaryShell}">
-		<Tab Route="tab1" Title="tab2" Icon="iconXamarin.png">
-			<ShellContent Route="level0" ContentTemplate="{DataTemplate local:Level0Page}">
-				
-				<ShellContent Route="level1" ContentTemplate="{DataTemplate local:Level1Page}">
-					<ShellContent Route="level2" ContentTemplate="{DataTemplate local:Level2Page}">
-						<Tab Route="tab1onLevel2" Title="tab2" Icon="iconXamarin.png">
-							<ShellContent Route="level3" ContentTemplate="{DataTemplate local:Level3Page}"/>
-						</Tab>
-						<Tab Route="tab1onLevel2" Title="tab1" Icon="iconXamarin.png">
-							<ShellContent Route="tab1onLevel2_Level0" ContentTemplate="{DataTemplate local:Level3Page}">
-								<ShellContent Route="level1" ContentTemplate="{DataTemplate local:Level1Page}"/>
-							</ShellContent>
-						</Tab>
-						<Tab Route="tab2onLevel2" Title="tab2" Icon="iconXamarin.png">
-							<ShellContent Route="tab2onLevel2_Level0" ContentTemplate="{DataTemplate local:Level3Page}">
-							</ShellContent>
-						</Tab>
-					</ShellContent>
-				</ShellContent>
-				
-			</ShellContent>
-		</Tab>
-		<Tab Route="tab2" Title="tab2" Icon="iconXamarin.png">
-			<ShellContent Route="updates" Title="Updates" Icon="iconXamarin.png" ContentTemplate="{DataTemplate local:UpdatesPage}" />
-		</Tab>
-	</FlyoutItem>
+	<!-- Optional Templates 
+    // These may be provided inline as below or as separate classes.
 
-	
+    // This header appears at the top of the Flyout.
+    <Shell.FlyoutHeaderTemplate>
+	<DataTemplate>
+            <Grid>ContentHere</Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    // ItemTemplate is for ShellItems as displayed in a Flyout
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                Bindable Properties: Title, Icon
+            </ContentView>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    // MenuItemTemplate is for MenuItems as displayed in a Flyout
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                Bindable Properties: Text, Icon
+            </ContentView>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+    -->
+
 </Shell>
