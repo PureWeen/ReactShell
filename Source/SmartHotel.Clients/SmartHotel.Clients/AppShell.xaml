@@ -4,13 +4,50 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-			 xmlns:pages="clr-namespace:Shopanizer.Pages"
+			 xmlns:pages="clr-namespace:Shopanizer"
              x:Class="Shopanizer.AppShell">
 
 	<TabBar>
-		<ShellContent Route="LoginPageViewModel"  ContentTemplate="{DataTemplate pages:LoginPage}"></ShellContent>
+		<ShellContent Route="LoginPageViewModel"></ShellContent>
 	</TabBar>
+	
 	<TabBar>
-		<ShellContent Route="HomePageViewModel"  ContentTemplate="{DataTemplate pages:HomePage}"></ShellContent>
+		<ShellContent Route="LoginPageViewModel">
+			<ShellItem>
+				<ShellSection>
+					<ShellContent></ShellContent>
+				</ShellSection>
+			</ShellItem>
+		</ShellContent>
 	</TabBar>
+
+	<FlyoutItem Route="tabsandwich" Title="Tab Sandwich" FlyoutIcon="iconXamarin.png" Style="{StaticResource TertiaryShell}">
+		<Tab Route="tab1" Title="tab2" Icon="iconXamarin.png">
+			<ShellContent Route="level0" ContentTemplate="{DataTemplate local:Level0Page}">
+				
+				<ShellContent Route="level1" ContentTemplate="{DataTemplate local:Level1Page}">
+					<ShellContent Route="level2" ContentTemplate="{DataTemplate local:Level2Page}">
+						<Tab Route="tab1onLevel2" Title="tab2" Icon="iconXamarin.png">
+							<ShellContent Route="level3" ContentTemplate="{DataTemplate local:Level3Page}"/>
+						</Tab>
+						<Tab Route="tab1onLevel2" Title="tab1" Icon="iconXamarin.png">
+							<ShellContent Route="tab1onLevel2_Level0" ContentTemplate="{DataTemplate local:Level3Page}">
+								<ShellContent Route="level1" ContentTemplate="{DataTemplate local:Level1Page}"/>
+							</ShellContent>
+						</Tab>
+						<Tab Route="tab2onLevel2" Title="tab2" Icon="iconXamarin.png">
+							<ShellContent Route="tab2onLevel2_Level0" ContentTemplate="{DataTemplate local:Level3Page}">
+							</ShellContent>
+						</Tab>
+					</ShellContent>
+				</ShellContent>
+				
+			</ShellContent>
+		</Tab>
+		<Tab Route="tab2" Title="tab2" Icon="iconXamarin.png">
+			<ShellContent Route="updates" Title="Updates" Icon="iconXamarin.png" ContentTemplate="{DataTemplate local:UpdatesPage}" />
+		</Tab>
+	</FlyoutItem>
+
+	
 </Shell>

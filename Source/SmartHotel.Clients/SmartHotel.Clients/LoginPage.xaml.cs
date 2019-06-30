@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Shopanizer.Pages
+namespace Shopanizer
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : ContentPage
+    [QueryProperty("BindingContext", "BindingContext")]
+    public partial class LoginPage : ContentPage
     {
-        public HomePage()
+        public LoginPage()
         {
             InitializeComponent();
         }

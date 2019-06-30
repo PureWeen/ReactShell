@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.ComponentModel;
 using Xamarin.Forms.Xaml;
-using Shopanizer.Services;
 
 namespace Shopanizer
 {

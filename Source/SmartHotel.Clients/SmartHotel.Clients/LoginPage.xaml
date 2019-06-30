@@ -4,12 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Shopanizer.Pages.HomePage">
+             x:Class="Shopanizer.LoginPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Text}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Login" Command="{Binding LoginCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
