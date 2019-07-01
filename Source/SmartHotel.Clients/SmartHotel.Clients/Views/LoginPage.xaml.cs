@@ -10,7 +10,6 @@ using Xamarin.Forms.Xaml;
 namespace Shopanizer
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [QueryProperty("BindingContext", "BindingContext")]
     public partial class LoginPage : ContentPage
     {
         public LoginPage()

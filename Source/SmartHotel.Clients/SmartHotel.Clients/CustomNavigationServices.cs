@@ -15,30 +15,20 @@ namespace Shopanizer
 
         }
 
+
+        
         public override void ApplyParameters(ShellLifecycleArgs args)
         {
             base.ApplyParameters(args);
-
-            if(args.Element is LoginPage page)
-            {
-            }
         }
 
         public override Page Create(ShellContentCreateArgs args)
         {
-            Page createPage = null;
-            if (args.Content.Route == "LoginPageViewModel")
-            {
-                createPage = new LoginPage();
-            }
-            else
-                createPage = base.Create(args);
-
-            if(createPage is LoginPage)
-            {
-
-            }
-
+            // could even replace this with your own create method
+            Page createPage = base.Create(args);
+            string typeName = String.Concat("Shopanizer.", args.Content.Route);
+            var viewModel = Activator.CreateInstance(this.GetType().Assembly.GetType(typeName));
+            createPage.BindingContext = viewModel;
             return createPage;
         }
 
@@ -51,12 +41,6 @@ namespace Shopanizer
         public override Task<ShellRouteState> NavigatingToAsync(ShellNavigationArgs args)
         {
             var currentPath = args.FutureState.CurrentRoute.PathParts.Last();
-
-            if(currentPath.Path == "LoginPageViewModel")
-            {
-                currentPath.NavigationParameters.Add("BindingContext", new LoginViewModel());
-            }
-
             return base.NavigatingToAsync(args);
         }
     }

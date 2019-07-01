@@ -8,9 +8,6 @@
              x:Class="Shopanizer.AppShell">
 
 	
-	<!-- 
-        Styles and Resources 
-    -->
 	<Shell.Resources>
 		<ResourceDictionary>
 			<Color x:Key="NavigationPrimary">#2196F3</Color>
@@ -28,13 +25,23 @@
 			<Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
 		</ResourceDictionary>
 	</Shell.Resources>
-	<!-- Your Pages -->
-	<TabBar>
+
+	<TabBar IsVisible="False" Route="LoginTabBar">
+		<ShellSection IsVisible="False">
+			<ShellContent IsVisible="False" Shell.FlyoutBehavior="Disabled" Route="LoginPageViewModel" ContentTemplate="{DataTemplate local:LoginPage}">
+			</ShellContent>
+		</ShellSection>
+	</TabBar>
+	
+	<TabBar Route="MainAppTabBar">
 		<Tab Title="Browse" Icon="tab_feed.png">
-			<ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
+			<ShellContent Route="ItemsPageViewModel" ContentTemplate="{DataTemplate local:ItemsPage}" />
 		</Tab>
 		<Tab Title="About" Icon="tab_about.png">
-			<ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+			<ShellContent Route="ItemsPageViewModel" ContentTemplate="{DataTemplate local:AboutPage}" />
+		</Tab>
+		<Tab Title="About" Icon="tab_about.png">
+			<ShellContent Route="AboutPageViewModel" ContentTemplate="{DataTemplate local:AboutPage}" />
 		</Tab>
 	</TabBar>
 
