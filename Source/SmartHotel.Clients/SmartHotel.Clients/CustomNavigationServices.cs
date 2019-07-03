@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace Shopanizer
 {
@@ -34,12 +35,20 @@ namespace Shopanizer
 
         public override async Task<ShellRouteState> ParseAsync(ShellUriParserArgs args)
         {
+            if(args.Uri.ToString() == "..")
+            {
+                var currentState = args.Shell.RouteState;
+
+                currentState.CurrentRoute.PathParts = new ReadOnlyCollection<PathPart>(currentState.CurrentRoute.PathParts.Reverse().Skip(1).Reverse().ToList());
+                return currentState;
+            }
+
             var parseArgs = await base.ParseAsync(args);
             return parseArgs;
         }
 
         public override Task<ShellRouteState> NavigatingToAsync(ShellNavigationArgs args)
-        {
+        {            
             var currentPath = args.FutureState.CurrentRoute.PathParts.Last();
             return base.NavigatingToAsync(args);
         }

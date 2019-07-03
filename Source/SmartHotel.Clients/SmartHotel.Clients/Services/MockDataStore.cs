@@ -8,13 +8,14 @@ namespace Shopanizer.Services
 {
     public class MockDataStore : IDataStore<Item>
     {
-        List<Item> items;
+        static Lazy<MockDataStore> _instances = new Lazy<MockDataStore>(() => new MockDataStore());
 
-        public MockDataStore()
+        public static MockDataStore Instance => _instances.Value;
+
+        List<Item> items;
+        private MockDataStore()
         {
-            items = new List<Item>();
-            var mockItems = new List<Item>
-            {
+            items = new List<Item>(){
                 new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
@@ -22,11 +23,6 @@ namespace Shopanizer.Services
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
             };
-
-            foreach (var item in mockItems)
-            {
-                items.Add(item);
-            }
         }
 
         public async Task<bool> AddItemAsync(Item item)

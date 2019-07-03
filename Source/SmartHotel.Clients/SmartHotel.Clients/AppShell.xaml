@@ -33,17 +33,19 @@
 		</ShellSection>
 	</TabBar>
 	
-	<TabBar Route="MainAppTabBar">
+	<FlyoutItem Title="Item1" Route="MainAppTabBar">
 		<Tab Title="Browse" Icon="tab_feed.png">
 			<ShellContent Route="ItemsPageViewModel" ContentTemplate="{DataTemplate local:ItemsPage}" />
 		</Tab>
+		<!--<Tab Title="About" Icon="tab_about.png">
+			<ShellContent Route="AboutViewModel" ContentTemplate="{DataTemplate local:AboutPage}" />
+		</Tab>-->
+	</FlyoutItem>
+	<FlyoutItem Route="About" Title="Item2">
 		<Tab Title="About" Icon="tab_about.png">
-			<ShellContent Route="ItemsPageViewModel" ContentTemplate="{DataTemplate local:AboutPage}" />
+			<ShellContent Route="AboutViewModel" ContentTemplate="{DataTemplate local:AboutPage}" />
 		</Tab>
-		<Tab Title="About" Icon="tab_about.png">
-			<ShellContent Route="AboutPageViewModel" ContentTemplate="{DataTemplate local:AboutPage}" />
-		</Tab>
-	</TabBar>
+	</FlyoutItem>
 
 	<!-- Optional Templates 
     // These may be provided inline as below or as separate classes.

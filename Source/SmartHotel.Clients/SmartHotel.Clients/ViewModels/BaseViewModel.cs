@@ -10,9 +10,10 @@ using Shopanizer.Services;
 
 namespace Shopanizer
 {
+    [QueryProperty("StackDepth", "StackDepth")]
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public static IDataStore<Item> DataStore { get; } =  DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public IDataStore<Item> DataStore { get; } =  DependencyService.Get<IDataStore<Item>>() ?? MockDataStore.Instance;
 
         bool isBusy = false;
         public bool IsBusy

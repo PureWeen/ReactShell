@@ -7,7 +7,10 @@
              x:Class="Shopanizer.AboutPage"
              xmlns:vm="clr-namespace:Shopanizer"
              Title="{Binding Title}">
-    
+
+	<Shell.BackButtonBehavior>
+		<BackButtonBehavior Command="{Binding GoBack}" TextOverride="Back"></BackButtonBehavior>
+	</Shell.BackButtonBehavior>
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
