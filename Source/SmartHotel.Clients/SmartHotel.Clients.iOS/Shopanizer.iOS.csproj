@@ -208,6 +208,10 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Xamarin.Forms\Stubs\Xamarin.Forms.Platform.iOS\Xamarin.Forms.Platform.iOS %28Forwarders%29.csproj">
+      <Project>{39b3457f-01d8-43d0-8e84-d8c4f73cf48d}</Project>
+      <Name>Xamarin.Forms.Platform.iOS %28Forwarders%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Xamarin.Forms\Xamarin.Forms.Core\Xamarin.Forms.Core.csproj">
       <Project>{5e8be2d3-6a9e-4c67-8b2a-6f2de285ac3a}</Project>
       <Name>Xamarin.Forms.Core</Name>
