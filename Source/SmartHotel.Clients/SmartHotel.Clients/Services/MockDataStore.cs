@@ -16,12 +16,12 @@ namespace Shopanizer.Services
         private MockDataStore()
         {
             items = new List<Item>(){
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new Item { Id = "1", Text = "First item", Description="This is an item description." },
+                new Item { Id = "2", Text = "Second item", Description="This is an item description." },
+                new Item { Id = "3", Text = "Third item", Description="This is an item description." },
+                new Item { Id = "4", Text = "Fourth item", Description="This is an item description." },
+                new Item { Id = "5", Text = "Fifth item", Description="This is an item description." },
+                new Item { Id = "6", Text = "Sixth item", Description="This is an item description." }
             };
         }
 

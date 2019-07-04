@@ -35,22 +35,48 @@ namespace Shopanizer
 
         public override async Task<ShellRouteState> ParseAsync(ShellUriParserArgs args)
         {
+            var uri = args.Uri;
+            if(initialLoad)
+            {
+                initialLoad = false;
+                var saved = Xamarin.Essentials.Preferences.Get("WhereAmI", null);
+
+                if(!String.IsNullOrWhiteSpace(saved))
+                {
+                    try
+                    {
+                        var savedArgs = await base.ParseAsync(new ShellUriParserArgs(args.Shell, new Uri(saved, UriKind.RelativeOrAbsolute)));
+                        return savedArgs;
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
+
             if(args.Uri.ToString() == "..")
             {
                 var currentState = args.Shell.RouteState;
-
                 currentState.CurrentRoute.PathParts = new ReadOnlyCollection<PathPart>(currentState.CurrentRoute.PathParts.Reverse().Skip(1).Reverse().ToList());
                 return currentState;
             }
 
             var parseArgs = await base.ParseAsync(args);
+            SaveState(parseArgs.CurrentRoute.FullUri.ToString());
             return parseArgs;
         }
 
+        bool initialLoad = true;
         public override Task<ShellRouteState> NavigatingToAsync(ShellNavigationArgs args)
-        {            
+        {   
             var currentPath = args.FutureState.CurrentRoute.PathParts.Last();
             return base.NavigatingToAsync(args);
+        }
+
+        void SaveState(string uri)
+        {
+            Xamarin.Essentials.Preferences.Set("WhereAmI", uri);
         }
     }
 }
