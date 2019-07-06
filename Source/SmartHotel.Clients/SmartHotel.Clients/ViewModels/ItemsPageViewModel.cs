@@ -38,7 +38,7 @@ namespace Shopanizer
             {
                 selectedItem = value;
                 OnPropertyChanged();
-                Shell.Current.GoToAsync($"{nameof(ItemDetailPageViewModel)}?Id={SelectedItem.Id}");
+                Shell.Current.GoToAsync($"{nameof(ItemDetailPageViewModel)}?Id={SelectedItem.Id}", false);
             }
         }
 

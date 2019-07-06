@@ -33,6 +33,41 @@ namespace Shopanizer
             return createPage;
         }
 
+        public override async Task<ShellRouteState> NavigatingToAsync(ShellNavigationArgs args)
+        {
+            var currentPath = args.FutureState.CurrentRoute.PathParts.Last();
+            var activePart = args.Shell.RouteState.CurrentRoute.PathParts.LastOrDefault();
+            var page = (activePart?.ShellPart as IShellContentController)?.Page;
+
+            if (page != null)
+            {
+                await page.ScaleTo(0, 500);
+            }
+
+            return await base.NavigatingToAsync(args);
+        }
+
+        Page _lastPage;
+        public override async Task AppearingAsync(ShellLifecycleArgs args)
+        {
+            var incomingPage = (args.RoutePath.PathParts.LastOrDefault()?.ShellPart as IShellContentController)?.Page;
+
+            if (_lastPage != null)
+            {
+                incomingPage.Scale = 0;
+                incomingPage.Rotation = 3600;
+
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Task.WhenAll(incomingPage.ScaleTo(1, 500), incomingPage.RotateTo(0, 600));
+                });
+            }
+
+            _lastPage = incomingPage;           
+
+            await base.AppearingAsync(args);
+        }
+
         public override async Task<ShellRouteState> ParseAsync(ShellUriParserArgs args)
         {
             var uri = args.Uri;
@@ -59,6 +94,7 @@ namespace Shopanizer
             {
                 var currentState = args.Shell.RouteState;
                 currentState.CurrentRoute.PathParts = new ReadOnlyCollection<PathPart>(currentState.CurrentRoute.PathParts.Reverse().Skip(1).Reverse().ToList());
+                SaveState(currentState.CurrentRoute.FullUri.ToString());
                 return currentState;
             }
 
@@ -68,11 +104,6 @@ namespace Shopanizer
         }
 
         bool initialLoad = true;
-        public override Task<ShellRouteState> NavigatingToAsync(ShellNavigationArgs args)
-        {   
-            var currentPath = args.FutureState.CurrentRoute.PathParts.Last();
-            return base.NavigatingToAsync(args);
-        }
 
         void SaveState(string uri)
         {
