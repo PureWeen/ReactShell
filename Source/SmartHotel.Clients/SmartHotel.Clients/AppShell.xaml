@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
 			 xmlns:local="clr-namespace:Shopanizer"
+		
              x:Class="Shopanizer.AppShell">
 
 	
@@ -44,6 +45,13 @@
 	<FlyoutItem Route="About" Title="Item2">
 		<Tab Title="About" Icon="tab_about.png">
 			<ShellContent Route="AboutViewModel" ContentTemplate="{DataTemplate local:AboutPage}" />
+		</Tab>
+		<Tab Route="Page1" Title="Page1">
+			<ShellContent Route="AboutViewModel" ContentTemplate="{DataTemplate local:AboutPage}" />
+		</Tab>
+		<Tab Route="Page2" Title="Page2">
+			<ShellContent Route="AboutViewModel" ContentTemplate="{DataTemplate local:AboutPage}" />
+
 		</Tab>
 	</FlyoutItem>
 
