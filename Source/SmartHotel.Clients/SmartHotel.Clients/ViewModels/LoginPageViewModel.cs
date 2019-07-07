@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Shopanizer
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginPageViewModel : BaseViewModel
     {
         public ICommand LoginCommand { get; } = 
             new Command(() => 

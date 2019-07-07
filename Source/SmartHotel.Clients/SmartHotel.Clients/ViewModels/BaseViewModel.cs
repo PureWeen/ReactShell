@@ -7,12 +7,13 @@ using Xamarin.Forms;
 
 using Shopanizer.Models;
 using Shopanizer.Services;
+using System.Windows.Input;
 
 namespace Shopanizer
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public IDataStore<Item> DataStore => MockDataStore.Instance;
 
         bool isBusy = false;
         public bool IsBusy

@@ -8,25 +8,21 @@ namespace Shopanizer.Services
 {
     public class MockDataStore : IDataStore<Item>
     {
+        static Lazy<MockDataStore> _instances = new Lazy<MockDataStore>(() => new MockDataStore());
+
+        public static MockDataStore Instance => _instances.Value;
+
         List<Item> items;
-
-        public MockDataStore()
+        private MockDataStore()
         {
-            items = new List<Item>();
-            var mockItems = new List<Item>
-            {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+            items = new List<Item>(){
+                new Item { Id = "1", Text = "First item", Description="This is an item description." },
+                new Item { Id = "2", Text = "Second item", Description="This is an item description." },
+                new Item { Id = "3", Text = "Third item", Description="This is an item description." },
+                new Item { Id = "4", Text = "Fourth item", Description="This is an item description." },
+                new Item { Id = "5", Text = "Fifth item", Description="This is an item description." },
+                new Item { Id = "6", Text = "Sixth item", Description="This is an item description." }
             };
-
-            foreach (var item in mockItems)
-            {
-                items.Add(item);
-            }
         }
 
         public async Task<bool> AddItemAsync(Item item)

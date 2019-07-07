@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace Shopanizer
 {
@@ -15,49 +16,38 @@ namespace Shopanizer
 
         }
 
-        public override void ApplyParameters(ShellLifecycleArgs args)
+        #region SaveState
+        List<Uri> navigationStack = new List<Uri>();
+        const string stackSeparator = "STAAAAAACK";
+        const string stackSetting = "STAAAAAACK";
+        void SaveState()
         {
-            base.ApplyParameters(args);
-
-            if(args.Element is LoginPage page)
-            {
-            }
+            var uri = String.Join(stackSeparator, navigationStack.Select(x => x.ToString()));
+            Xamarin.Essentials.Preferences.Set(stackSetting, uri);
         }
 
-        public override Page Create(ShellContentCreateArgs args)
+        List<Uri> LoadState()
         {
-            Page createPage = null;
-            if (args.Content.Route == "LoginPageViewModel")
+            try
             {
-                createPage = new LoginPage();
+                var saved = Xamarin.Essentials.Preferences.Get(stackSetting, null);
+
+                if (saved == null)
+                {
+                    return new List<Uri>();
+                }
+
+                return saved.Split(new[] { stackSeparator }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => new Uri(x))
+                    .ToList();
             }
-            else
-                createPage = base.Create(args);
-
-            if(createPage is LoginPage)
+            catch
             {
-
-            }
-
-            return createPage;
-        }
-
-        public override async Task<ShellRouteState> ParseAsync(ShellUriParserArgs args)
-        {
-            var parseArgs = await base.ParseAsync(args);
-            return parseArgs;
-        }
-
-        public override Task<ShellRouteState> NavigatingToAsync(ShellNavigationArgs args)
-        {
-            var currentPath = args.FutureState.CurrentRoute.PathParts.Last();
-
-            if(currentPath.Path == "LoginPageViewModel")
-            {
-                currentPath.NavigationParameters.Add("BindingContext", new LoginViewModel());
             }
 
-            return base.NavigatingToAsync(args);
+            return new List<Uri>();
         }
+        #endregion
+
     }
 }

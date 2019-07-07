@@ -10,12 +10,14 @@ using Shopanizer;
 
 namespace Shopanizer
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ItemsPageViewModel : BaseViewModel
     {
+        private Item selectedItem;
+
         public ObservableCollection<Item> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public ItemsViewModel()
+        public ItemsPageViewModel()
         {
             Title = "Browse";
             Items = new ObservableCollection<Item>();
@@ -27,6 +29,17 @@ namespace Shopanizer
                 Items.Add(newItem);
                 await DataStore.AddItemAsync(newItem);
             });
+        }
+
+        public Item SelectedItem
+        {
+            get => selectedItem;
+            set
+            {
+                selectedItem = value;
+                OnPropertyChanged();
+                Shell.Current.GoToAsync($"{nameof(ItemDetailPageViewModel)}?Id={SelectedItem.Id}", false);
+            }
         }
 
         async Task ExecuteLoadItemsCommand()

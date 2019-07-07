@@ -13,9 +13,9 @@ namespace Shopanizer
     [DesignTimeVisible(false)]
     public partial class ItemDetailPage : ContentPage
     {
-        ItemDetailViewModel viewModel;
+        ItemDetailPageViewModel viewModel;
 
-        public ItemDetailPage(ItemDetailViewModel viewModel)
+        public ItemDetailPage(ItemDetailPageViewModel viewModel)
         {
             InitializeComponent();
 
@@ -32,7 +32,7 @@ namespace Shopanizer
                 Description = "This is an item description."
             };
 
-            viewModel = new ItemDetailViewModel(item);
+            viewModel = new ItemDetailPageViewModel(item);
             BindingContext = viewModel;
         }
     }
