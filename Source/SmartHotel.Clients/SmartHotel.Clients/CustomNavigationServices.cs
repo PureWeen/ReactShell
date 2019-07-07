@@ -11,12 +11,12 @@ namespace Shopanizer
 {
     public class CustomNavigationServices : ShellNavigationService
     {
+        List<Uri> navigationStack = new List<Uri>();
+
         public CustomNavigationServices()
         {
 
         }
-
-
         
         public override void ApplyParameters(ShellLifecycleArgs args)
         {
@@ -28,16 +28,44 @@ namespace Shopanizer
             // could even replace this with your own create method
             Page createPage = base.Create(args);
             string typeName = String.Concat("Shopanizer.", args.Content.Route);
-            var viewModel = Activator.CreateInstance(this.GetType().Assembly.GetType(typeName));
+            var viewModel = (BaseViewModel)Activator.CreateInstance(this.GetType().Assembly.GetType(typeName));
+
+            Shell.SetBackButtonBehavior(createPage, new BackButtonBehavior() {
+                Command = new Command(async () =>
+               {
+                   if (navigationStack.Count > 1)
+                   {
+                       await Shell.Current.GoToAsync("..", false);
+                   }
+                   else
+                   {
+                       Shell.Current.FlyoutIsPresented = true;
+                   }
+               })
+            });
+
+
             createPage.BindingContext = viewModel;
             return createPage;
         }
 
         public override async Task<ShellRouteState> NavigatingToAsync(ShellNavigationArgs args)
         {
-            var currentPath = args.FutureState.CurrentRoute.PathParts.Last();
-            var activePart = args.Shell.RouteState.CurrentRoute.PathParts.LastOrDefault();
-            var page = (activePart?.ShellPart as IShellContentController)?.Page;
+            if (navigationStack.Count == 0)
+            {
+                navigationStack = LoadState();
+
+                if(navigationStack.Count > 0)
+                    return await ParseAsync(new ShellUriParserArgs(args.Shell, navigationStack.Last()));
+            }
+
+            if (args.FutureState.CurrentRoute.FullUri != navigationStack.LastOrDefault())
+            {
+                navigationStack.Add(args.FutureState.CurrentRoute.FullUri);
+                SaveState();
+            }
+
+            var page = args.Shell.RouteState.GetCurrentPage();
 
             if (page != null)
             {
@@ -50,7 +78,17 @@ namespace Shopanizer
         Page _lastPage;
         public override async Task AppearingAsync(ShellLifecycleArgs args)
         {
-            var incomingPage = (args.RoutePath.PathParts.LastOrDefault()?.ShellPart as IShellContentController)?.Page;
+            var incomingPage = args.RoutePath.GetCurrentPage();
+            var backButtonBehavior = Shell.GetBackButtonBehavior(incomingPage);
+
+            if (navigationStack.Count > 1)
+            {
+                backButtonBehavior.TextOverride = "Back";
+            }
+            else
+            {
+                backButtonBehavior.TextOverride = null;
+            }
 
             if (_lastPage != null)
             {
@@ -63,51 +101,73 @@ namespace Shopanizer
                 });
             }
 
-            _lastPage = incomingPage;           
-
+            _lastPage = incomingPage;  
             await base.AppearingAsync(args);
         }
 
         public override async Task<ShellRouteState> ParseAsync(ShellUriParserArgs args)
         {
             var uri = args.Uri;
-            if(initialLoad)
-            {
-                initialLoad = false;
-                var saved = Xamarin.Essentials.Preferences.Get("WhereAmI", null);
+            //if(initialLoad)
+            //{
+            //    initialLoad = false;
+            //    var saved = Xamarin.Essentials.Preferences.Get("WhereAmI", null);
 
-                if(!String.IsNullOrWhiteSpace(saved))
-                {
-                    try
-                    {
-                        var savedArgs = await base.ParseAsync(new ShellUriParserArgs(args.Shell, new Uri(saved, UriKind.RelativeOrAbsolute)));
-                        return savedArgs;
-                    }
-                    catch
-                    {
+            //    if(!String.IsNullOrWhiteSpace(saved))
+            //    {
+            //        try
+            //        {
+            //            var savedArgs = await base.ParseAsync(new ShellUriParserArgs(args.Shell, new Uri(saved, UriKind.RelativeOrAbsolute)));
+            //            return savedArgs;
+            //        }
+            //        catch
+            //        {
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
 
             if(args.Uri.ToString() == "..")
             {
-                var currentState = args.Shell.RouteState;
-                currentState.CurrentRoute.PathParts = new ReadOnlyCollection<PathPart>(currentState.CurrentRoute.PathParts.Reverse().Skip(1).Reverse().ToList());
-                SaveState(currentState.CurrentRoute.FullUri.ToString());
-                return currentState;
+                var lastPlace = navigationStack.Last();
+                navigationStack.Remove(lastPlace);
+
+                var parsePrevious = await base.ParseAsync(new ShellUriParserArgs(args.Shell, navigationStack.LastOrDefault()));
+                return parsePrevious;
             }
 
             var parseArgs = await base.ParseAsync(args);
-            SaveState(parseArgs.CurrentRoute.FullUri.ToString());
             return parseArgs;
         }
 
         bool initialLoad = true;
 
-        void SaveState(string uri)
+        void SaveState()
         {
+            var uri = String.Join("STAAAAAACK", navigationStack.Select(x => x.ToString()));
             Xamarin.Essentials.Preferences.Set("WhereAmI", uri);
+        }
+
+        List<Uri> LoadState()
+        {
+            try
+            {
+                var saved = Xamarin.Essentials.Preferences.Get("WhereAmI", null);
+
+                if (saved == null)
+                {
+                    return new List<Uri>();
+                }
+
+                return saved.Split(new[] { "STAAAAAACK" }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => new Uri(x))
+                    .ToList();
+            }
+            catch
+            {
+            }
+
+            return new List<Uri>();
         }
     }
 }
