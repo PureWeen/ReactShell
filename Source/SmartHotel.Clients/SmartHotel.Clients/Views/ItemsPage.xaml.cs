@@ -12,9 +12,6 @@ using Shopanizer;
 
 namespace Shopanizer
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
     public partial class ItemsPage : ContentPage
     {
         ItemsPageViewModel viewModel => (ItemsPageViewModel)BindingContext;
@@ -32,6 +29,8 @@ namespace Shopanizer
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            BindingContext = BindingContext;
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);

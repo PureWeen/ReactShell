@@ -12,135 +12,129 @@ namespace Shopanizer
     public class CustomNavigationServices : ShellNavigationService
     {
         List<Uri> navigationStack = new List<Uri>();
-
-        public CustomNavigationServices()
-        {
-
-        }
-        
-        public override void ApplyParameters(ShellLifecycleArgs args)
-        {
-            base.ApplyParameters(args);
-        }
+        Page _lastPage;
 
         public override Page Create(ShellContentCreateArgs args)
         {
             // could even replace this with your own create method
-            Page createPage = base.Create(args);
+            Page createPage = null;
+
+            if (args.Content.Route == nameof(LoginPageViewModel))
+                createPage = new LoginPage();
+
+            createPage = createPage ?? base.Create(args);
+
             string typeName = String.Concat("Shopanizer.", args.Content.Route);
             var viewModel = (BaseViewModel)Activator.CreateInstance(this.GetType().Assembly.GetType(typeName));
 
-            Shell.SetBackButtonBehavior(createPage, new BackButtonBehavior() {
-                Command = new Command(async () =>
-               {
-                   if (navigationStack.Count > 1)
-                   {
-                       await Shell.Current.GoToAsync("..", false);
-                   }
-                   else
-                   {
-                       Shell.Current.FlyoutIsPresented = true;
-                   }
-               })
-            });
-
+            #region back button
+            //Shell.SetBackButtonBehavior(createPage, new BackButtonBehavior()
+            //{
+            //    Command = new Command(async () =>
+            //    {
+            //        if (navigationStack.Count > 1)
+            //        {
+            //            await Shell.Current.GoToAsync("..", false);
+            //        }
+            //        else
+            //        {
+            //            Shell.Current.FlyoutIsPresented = true;
+            //        }
+            //    })
+            //});
+            #endregion
 
             createPage.BindingContext = viewModel;
             return createPage;
         }
 
+
+
         public override async Task<ShellRouteState> NavigatingToAsync(ShellNavigationArgs args)
         {
-            if (navigationStack.Count == 0)
-            {
-                navigationStack = LoadState();
+            #region tombstone
+            //if (navigationStack.Count == 0)
+            //{
+            //    navigationStack = LoadState();
 
-                if(navigationStack.Count > 0)
-                    return await ParseAsync(new ShellUriParserArgs(args.Shell, navigationStack.Last()));
-            }
+            //    if(navigationStack.Count > 0)
+            //        return await ParseAsync(new ShellUriParserArgs(args.Shell, navigationStack.Last()));
+            //}
 
-            if (args.FutureState.CurrentRoute.FullUri != navigationStack.LastOrDefault())
-            {
-                navigationStack.Add(args.FutureState.CurrentRoute.FullUri);
-                SaveState();
-            }
 
-            var page = args.Shell.RouteState.GetCurrentPage();
+            //if (args.FutureState.CurrentRoute.FullUri != navigationStack.LastOrDefault())
+            //{
+            //    navigationStack.Add(args.FutureState.CurrentRoute.FullUri);
+            //    SaveState();
+            //}
+            #endregion
 
-            if (page != null)
-            {
-                await page.ScaleTo(0, 500);
-            }
+            #region animation
+            //var page = args.Shell.RouteState.GetCurrentPage();
+
+            //if (page != null)
+            //{
+            //    await page.ScaleTo(0, 500);
+            //}
+            #endregion
 
             return await base.NavigatingToAsync(args);
         }
 
-        Page _lastPage;
         public override async Task AppearingAsync(ShellLifecycleArgs args)
         {
             var incomingPage = args.RoutePath.GetCurrentPage();
-            var backButtonBehavior = Shell.GetBackButtonBehavior(incomingPage);
 
-            if (navigationStack.Count > 1)
-            {
-                backButtonBehavior.TextOverride = "Back";
-            }
-            else
-            {
-                backButtonBehavior.TextOverride = null;
-            }
+            #region backbutton
+            //var backButtonBehavior = Shell.GetBackButtonBehavior(incomingPage);
 
-            if (_lastPage != null)
-            {
-                incomingPage.Scale = 0;
-                incomingPage.Rotation = 3600;
+            //if (navigationStack.Count > 1)
+            //{
+            //    backButtonBehavior.TextOverride = "Back";
+            //}
+            //else
+            //{
+            //    backButtonBehavior.TextOverride = null;
+            //}
+            #endregion
 
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await Task.WhenAll(incomingPage.ScaleTo(1, 500), incomingPage.RotateTo(0, 600));
-                });
-            }
+            #region animation
+            //if (_lastPage != null)
+            //{
+            //    incomingPage.Scale = 0;
+            //    incomingPage.Rotation = 3600;
 
-            _lastPage = incomingPage;  
+            //    Device.BeginInvokeOnMainThread(async () =>
+            //    {
+            //        await Task.WhenAll(incomingPage.ScaleTo(1, 500), incomingPage.RotateTo(0, 600));
+            //    });
+            //}
+            #endregion
+
+            _lastPage = incomingPage;
+
             await base.AppearingAsync(args);
         }
 
         public override async Task<ShellRouteState> ParseAsync(ShellUriParserArgs args)
         {
-            var uri = args.Uri;
-            //if(initialLoad)
+            #region back button ..
+            //if (args.Uri.ToString() == "..")
             //{
-            //    initialLoad = false;
-            //    var saved = Xamarin.Essentials.Preferences.Get("WhereAmI", null);
+            //    var lastPlace = navigationStack.Last();
+            //    navigationStack.Remove(lastPlace);
 
-            //    if(!String.IsNullOrWhiteSpace(saved))
-            //    {
-            //        try
-            //        {
-            //            var savedArgs = await base.ParseAsync(new ShellUriParserArgs(args.Shell, new Uri(saved, UriKind.RelativeOrAbsolute)));
-            //            return savedArgs;
-            //        }
-            //        catch
-            //        {
-
-            //        }
-            //    }
+            //    var parsePrevious = await base.ParseAsync(new ShellUriParserArgs(args.Shell, navigationStack.LastOrDefault()));
+            //    return parsePrevious;
             //}
+            #endregion
 
-            if(args.Uri.ToString() == "..")
-            {
-                var lastPlace = navigationStack.Last();
-                navigationStack.Remove(lastPlace);
-
-                var parsePrevious = await base.ParseAsync(new ShellUriParserArgs(args.Shell, navigationStack.LastOrDefault()));
-                return parsePrevious;
-            }
 
             var parseArgs = await base.ParseAsync(args);
             return parseArgs;
         }
 
-        bool initialLoad = true;
+        #region saving stack
 
         void SaveState()
         {
@@ -169,5 +163,6 @@ namespace Shopanizer
 
             return new List<Uri>();
         }
+        #endregion
     }
 }

@@ -27,9 +27,9 @@
 		</ResourceDictionary>
 	</Shell.Resources>
 
-	<TabBar IsVisible="False" Route="LoginTabBar">
-		<ShellSection IsVisible="False">
-			<ShellContent IsVisible="False" Shell.FlyoutBehavior="Disabled" Route="LoginPageViewModel" ContentTemplate="{DataTemplate local:LoginPage}">
+	<TabBar Route="LoginTabBar">
+		<ShellSection>
+			<ShellContent Shell.FlyoutBehavior="Disabled" Route="LoginPageViewModel" ContentTemplate="{DataTemplate local:LoginPage}">
 			</ShellContent>
 		</ShellSection>
 	</TabBar>
@@ -38,9 +38,6 @@
 		<Tab Title="Browse" Icon="tab_feed.png">
 			<ShellContent Route="ItemsPageViewModel" ContentTemplate="{DataTemplate local:ItemsPage}" />
 		</Tab>
-		<!--<Tab Title="About" Icon="tab_about.png">
-			<ShellContent Route="AboutViewModel" ContentTemplate="{DataTemplate local:AboutPage}" />
-		</Tab>-->
 	</FlyoutItem>
 	<FlyoutItem Route="About" Title="Item2">
 		<Tab Title="About" Icon="tab_about.png">
@@ -54,35 +51,5 @@
 
 		</Tab>
 	</FlyoutItem>
-
-	<!-- Optional Templates 
-    // These may be provided inline as below or as separate classes.
-
-    // This header appears at the top of the Flyout.
-    <Shell.FlyoutHeaderTemplate>
-	<DataTemplate>
-            <Grid>ContentHere</Grid>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
-
-    // ItemTemplate is for ShellItems as displayed in a Flyout
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Title, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-
-    // MenuItemTemplate is for MenuItems as displayed in a Flyout
-    <Shell.MenuItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Text, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.MenuItemTemplate>
-
-    -->
-
+    
 </Shell>

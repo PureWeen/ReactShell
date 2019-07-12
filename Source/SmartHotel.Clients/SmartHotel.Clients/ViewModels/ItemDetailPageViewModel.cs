@@ -37,10 +37,6 @@ namespace Shopanizer
             }
         }
 
-        public ItemDetailPageViewModel()
-        {
-        }
-
         void SetItem(Item item)
         {
             Title = item?.Text;
