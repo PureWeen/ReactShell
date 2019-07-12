@@ -51,5 +51,11 @@
 
 		</Tab>
 	</FlyoutItem>
+    <FlyoutItem Title="Top Secret" IsVisible="{Binding IsAdmin}">
+       <Tab>
+            <ShellContent Route="TopSecretPage">
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
     
 </Shell>

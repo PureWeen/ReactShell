@@ -224,6 +224,10 @@ namespace SmartHotel.Clients.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Animation.design_bottom_sheet_slide_out = global::SmartHotel.Clients.Droid.Resource.Animation.design_bottom_sheet_slide_out;
 			global::Xamarin.Forms.Material.Android.Resource.Animation.design_snackbar_in = global::SmartHotel.Clients.Droid.Resource.Animation.design_snackbar_in;
 			global::Xamarin.Forms.Material.Android.Resource.Animation.design_snackbar_out = global::SmartHotel.Clients.Droid.Resource.Animation.design_snackbar_out;
+			global::Xamarin.Forms.Material.Android.Resource.Animation.EnterFromLeft = global::SmartHotel.Clients.Droid.Resource.Animation.EnterFromLeft;
+			global::Xamarin.Forms.Material.Android.Resource.Animation.EnterFromRight = global::SmartHotel.Clients.Droid.Resource.Animation.EnterFromRight;
+			global::Xamarin.Forms.Material.Android.Resource.Animation.ExitToLeft = global::SmartHotel.Clients.Droid.Resource.Animation.ExitToLeft;
+			global::Xamarin.Forms.Material.Android.Resource.Animation.ExitToRight = global::SmartHotel.Clients.Droid.Resource.Animation.ExitToRight;
 			global::Xamarin.Forms.Material.Android.Resource.Animator.design_appbar_state_list_animator = global::SmartHotel.Clients.Droid.Resource.Animator.design_appbar_state_list_animator;
 			global::Xamarin.Forms.Material.Android.Resource.Animator.design_fab_hide_motion_spec = global::SmartHotel.Clients.Droid.Resource.Animator.design_fab_hide_motion_spec;
 			global::Xamarin.Forms.Material.Android.Resource.Animator.design_fab_show_motion_spec = global::SmartHotel.Clients.Droid.Resource.Animator.design_fab_show_motion_spec;
@@ -1223,6 +1227,8 @@ namespace SmartHotel.Clients.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Id.beginning = global::SmartHotel.Clients.Droid.Resource.Id.beginning;
 			global::Xamarin.Forms.Material.Android.Resource.Id.blocking = global::SmartHotel.Clients.Droid.Resource.Id.blocking;
 			global::Xamarin.Forms.Material.Android.Resource.Id.bottom = global::SmartHotel.Clients.Droid.Resource.Id.bottom;
+			global::Xamarin.Forms.Material.Android.Resource.Id.bottomtab_navarea = global::SmartHotel.Clients.Droid.Resource.Id.bottomtab_navarea;
+			global::Xamarin.Forms.Material.Android.Resource.Id.bottomtab_tabbar = global::SmartHotel.Clients.Droid.Resource.Id.bottomtab_tabbar;
 			global::Xamarin.Forms.Material.Android.Resource.Id.buttonPanel = global::SmartHotel.Clients.Droid.Resource.Id.buttonPanel;
 			global::Xamarin.Forms.Material.Android.Resource.Id.cancel_action = global::SmartHotel.Clients.Droid.Resource.Id.cancel_action;
 			global::Xamarin.Forms.Material.Android.Resource.Id.center = global::SmartHotel.Clients.Droid.Resource.Id.center;
@@ -1260,6 +1266,8 @@ namespace SmartHotel.Clients.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Id.fill_vertical = global::SmartHotel.Clients.Droid.Resource.Id.fill_vertical;
 			global::Xamarin.Forms.Material.Android.Resource.Id.filled = global::SmartHotel.Clients.Droid.Resource.Id.filled;
 			global::Xamarin.Forms.Material.Android.Resource.Id.@fixed = global::SmartHotel.Clients.Droid.Resource.Id.@fixed;
+			global::Xamarin.Forms.Material.Android.Resource.Id.flyoutcontent_appbar = global::SmartHotel.Clients.Droid.Resource.Id.flyoutcontent_appbar;
+			global::Xamarin.Forms.Material.Android.Resource.Id.flyoutcontent_recycler = global::SmartHotel.Clients.Droid.Resource.Id.flyoutcontent_recycler;
 			global::Xamarin.Forms.Material.Android.Resource.Id.forever = global::SmartHotel.Clients.Droid.Resource.Id.forever;
 			global::Xamarin.Forms.Material.Android.Resource.Id.ghost_view = global::SmartHotel.Clients.Droid.Resource.Id.ghost_view;
 			global::Xamarin.Forms.Material.Android.Resource.Id.group_divider = global::SmartHotel.Clients.Droid.Resource.Id.group_divider;
@@ -1279,6 +1287,10 @@ namespace SmartHotel.Clients.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Id.line3 = global::SmartHotel.Clients.Droid.Resource.Id.line3;
 			global::Xamarin.Forms.Material.Android.Resource.Id.listMode = global::SmartHotel.Clients.Droid.Resource.Id.listMode;
 			global::Xamarin.Forms.Material.Android.Resource.Id.list_item = global::SmartHotel.Clients.Droid.Resource.Id.list_item;
+			global::Xamarin.Forms.Material.Android.Resource.Id.main_appbar = global::SmartHotel.Clients.Droid.Resource.Id.main_appbar;
+			global::Xamarin.Forms.Material.Android.Resource.Id.main_scrollview = global::SmartHotel.Clients.Droid.Resource.Id.main_scrollview;
+			global::Xamarin.Forms.Material.Android.Resource.Id.main_tablayout = global::SmartHotel.Clients.Droid.Resource.Id.main_tablayout;
+			global::Xamarin.Forms.Material.Android.Resource.Id.main_toolbar = global::SmartHotel.Clients.Droid.Resource.Id.main_toolbar;
 			global::Xamarin.Forms.Material.Android.Resource.Id.masked = global::SmartHotel.Clients.Droid.Resource.Id.masked;
 			global::Xamarin.Forms.Material.Android.Resource.Id.materialformsedittext = global::SmartHotel.Clients.Droid.Resource.Id.materialformsedittext;
 			global::Xamarin.Forms.Material.Android.Resource.Id.media_actions = global::SmartHotel.Clients.Droid.Resource.Id.media_actions;
@@ -1327,6 +1339,9 @@ namespace SmartHotel.Clients.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Id.search_voice_btn = global::SmartHotel.Clients.Droid.Resource.Id.search_voice_btn;
 			global::Xamarin.Forms.Material.Android.Resource.Id.select_dialog_listview = global::SmartHotel.Clients.Droid.Resource.Id.select_dialog_listview;
 			global::Xamarin.Forms.Material.Android.Resource.Id.selected = global::SmartHotel.Clients.Droid.Resource.Id.selected;
+			global::Xamarin.Forms.Material.Android.Resource.Id.shellcontent_appbar = global::SmartHotel.Clients.Droid.Resource.Id.shellcontent_appbar;
+			global::Xamarin.Forms.Material.Android.Resource.Id.shellcontent_scrollview = global::SmartHotel.Clients.Droid.Resource.Id.shellcontent_scrollview;
+			global::Xamarin.Forms.Material.Android.Resource.Id.shellcontent_toolbar = global::SmartHotel.Clients.Droid.Resource.Id.shellcontent_toolbar;
 			global::Xamarin.Forms.Material.Android.Resource.Id.shortcut = global::SmartHotel.Clients.Droid.Resource.Id.shortcut;
 			global::Xamarin.Forms.Material.Android.Resource.Id.showCustom = global::SmartHotel.Clients.Droid.Resource.Id.showCustom;
 			global::Xamarin.Forms.Material.Android.Resource.Id.showHome = global::SmartHotel.Clients.Droid.Resource.Id.showHome;
@@ -1426,6 +1441,7 @@ namespace SmartHotel.Clients.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Layout.abc_search_view = global::SmartHotel.Clients.Droid.Resource.Layout.abc_search_view;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.abc_select_dialog_material = global::SmartHotel.Clients.Droid.Resource.Layout.abc_select_dialog_material;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.abc_tooltip = global::SmartHotel.Clients.Droid.Resource.Layout.abc_tooltip;
+			global::Xamarin.Forms.Material.Android.Resource.Layout.BottomTabLayout = global::SmartHotel.Clients.Droid.Resource.Layout.BottomTabLayout;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.design_bottom_navigation_item = global::SmartHotel.Clients.Droid.Resource.Layout.design_bottom_navigation_item;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.design_bottom_sheet_dialog = global::SmartHotel.Clients.Droid.Resource.Layout.design_bottom_sheet_dialog;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.design_layout_snackbar = global::SmartHotel.Clients.Droid.Resource.Layout.design_layout_snackbar;
@@ -1440,6 +1456,7 @@ namespace SmartHotel.Clients.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Layout.design_navigation_menu = global::SmartHotel.Clients.Droid.Resource.Layout.design_navigation_menu;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.design_navigation_menu_item = global::SmartHotel.Clients.Droid.Resource.Layout.design_navigation_menu_item;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.design_text_input_password_icon = global::SmartHotel.Clients.Droid.Resource.Layout.design_text_input_password_icon;
+			global::Xamarin.Forms.Material.Android.Resource.Layout.FlyoutContent = global::SmartHotel.Clients.Droid.Resource.Layout.FlyoutContent;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.MaterialPickerTextInput = global::SmartHotel.Clients.Droid.Resource.Layout.MaterialPickerTextInput;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.mtrl_layout_snackbar = global::SmartHotel.Clients.Droid.Resource.Layout.mtrl_layout_snackbar;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.mtrl_layout_snackbar_include = global::SmartHotel.Clients.Droid.Resource.Layout.mtrl_layout_snackbar_include;
@@ -1458,9 +1475,11 @@ namespace SmartHotel.Clients.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Layout.notification_template_media_custom = global::SmartHotel.Clients.Droid.Resource.Layout.notification_template_media_custom;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.notification_template_part_chronometer = global::SmartHotel.Clients.Droid.Resource.Layout.notification_template_part_chronometer;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.notification_template_part_time = global::SmartHotel.Clients.Droid.Resource.Layout.notification_template_part_time;
+			global::Xamarin.Forms.Material.Android.Resource.Layout.RootLayout = global::SmartHotel.Clients.Droid.Resource.Layout.RootLayout;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.select_dialog_item_material = global::SmartHotel.Clients.Droid.Resource.Layout.select_dialog_item_material;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.select_dialog_multichoice_material = global::SmartHotel.Clients.Droid.Resource.Layout.select_dialog_multichoice_material;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.select_dialog_singlechoice_material = global::SmartHotel.Clients.Droid.Resource.Layout.select_dialog_singlechoice_material;
+			global::Xamarin.Forms.Material.Android.Resource.Layout.ShellContent = global::SmartHotel.Clients.Droid.Resource.Layout.ShellContent;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.support_simple_spinner_dropdown_item = global::SmartHotel.Clients.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
 			global::Xamarin.Forms.Material.Android.Resource.Layout.TextInputLayoutFilledBox = global::SmartHotel.Clients.Droid.Resource.Layout.TextInputLayoutFilledBox;
 			global::Xamarin.Forms.Material.Android.Resource.String.abc_action_bar_home_description = global::SmartHotel.Clients.Droid.Resource.String.abc_action_bar_home_description;

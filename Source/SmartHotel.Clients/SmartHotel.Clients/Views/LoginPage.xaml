@@ -11,6 +11,10 @@
 			<Entry Placeholder="Username:"></Entry>
 			<Entry Placeholder="Password:"></Entry>
             <Button Text="Login" Command="{Binding LoginCommand}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Is Admin:"></Label>
+                <CheckBox IsChecked="{Binding IsAdmin}"></CheckBox>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

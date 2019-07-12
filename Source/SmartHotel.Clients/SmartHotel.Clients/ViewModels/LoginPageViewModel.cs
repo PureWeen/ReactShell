@@ -8,10 +8,28 @@ namespace Shopanizer
 {
     public class LoginPageViewModel : BaseViewModel
     {
-        public ICommand LoginCommand { get; } = 
-            new Command(() => 
-            {
-            }
-        );
+        public LoginPageViewModel()
+        {
+            LoginCommand  =
+               new Command(async () =>
+               {
+                   if(!IsAdmin)
+                        await Shell.Current.GoToAsync($"//{nameof(ItemsPageViewModel)}");
+                   else
+                   {
+                       (Shell.Current.BindingContext as ShellViewModel).IsAdmin = IsAdmin;
+                       await Shell.Current.GoToAsync($"//{nameof(TopSecretPage)}");
+                   }
+               }
+           );
+        }
+
+        public ICommand LoginCommand { get; }
+
+        public bool IsAdmin
+        {
+            get;
+            set;
+        }
     }
 }

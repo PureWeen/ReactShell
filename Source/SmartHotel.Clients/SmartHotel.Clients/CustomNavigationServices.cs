@@ -16,11 +16,16 @@ namespace Shopanizer
 
         public override Page Create(ShellContentCreateArgs args)
         {
+            if (args.Content.Route == nameof(TopSecretPage))
+                return new TopSecretPage();
+
             // could even replace this with your own create method
             Page createPage = null;
 
-            if (args.Content.Route == nameof(LoginPageViewModel))
-                createPage = new LoginPage();
+            #region replace create
+            // if (args.Content.Route == nameof(To))
+            //    createPage = new LoginPage();
+            #endregion
 
             createPage = createPage ?? base.Create(args);
 

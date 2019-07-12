@@ -14,6 +14,7 @@ namespace Shopanizer
     {
         public AppShell()
         {
+            BindingContext = new ShellViewModel();
             Routing.RegisterRoute("ItemDetailPageViewModel", typeof(ItemDetailPage));
             this.SetNavigationService(new CustomNavigationServices());
             InitializeComponent();
