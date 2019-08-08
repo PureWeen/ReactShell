@@ -29,7 +29,7 @@ namespace SmartHotel.Clients.Droid
             Xamarin.FormsMaps.Init(this, bundle);
             Xamarin.Essentials.Platform.Init(this, bundle);
 
-            LoadApplication(new App());
+            LoadApplication(new MDPSource.App());
             
         }
 

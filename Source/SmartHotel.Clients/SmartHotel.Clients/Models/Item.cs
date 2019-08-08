@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Shopanizer.Models
+namespace MDPSource.Models
 {
     public class Item
     {

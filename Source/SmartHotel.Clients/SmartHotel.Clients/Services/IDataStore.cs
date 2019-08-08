@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Shopanizer.Services
+namespace MDPSource.Services
 {
     public interface IDataStore<T>
     {

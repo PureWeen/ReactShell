@@ -36,7 +36,7 @@ namespace SmartHotel.Clients.iOS
             };
 #endif
             Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new MDPSource.App());
 
             base.FinishedLaunching(app, options);
 

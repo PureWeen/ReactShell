@@ -5,18 +5,14 @@ using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
 
-using Shopanizer.Models;
-using Shopanizer.Services;
-using System.Windows.Input;
+using MDPSource.Models;
+using MDPSource.Services;
 
-namespace Shopanizer
+namespace MDPSource.ViewModels
 {
-    [QueryProperty("StackDepth", "StackDepth")]
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore { get; } =  DependencyService.Get<IDataStore<Item>>() ?? MockDataStore.Instance;
-        public ICommand GoBack { get; set; }
-
+        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
 
         bool isBusy = false;
         public bool IsBusy

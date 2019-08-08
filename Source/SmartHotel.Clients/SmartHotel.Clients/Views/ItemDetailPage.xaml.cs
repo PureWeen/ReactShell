@@ -1,23 +1,37 @@
 ﻿using System;
-using System.ComponentModel;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using Shopanizer.Models;
-using Shopanizer;
+using MDPSource.Models;
+using MDPSource.ViewModels;
 
-namespace Shopanizer
+namespace MDPSource.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemDetailPage : ContentPage
     {
+        ItemDetailViewModel viewModel;
+
+        public ItemDetailPage(ItemDetailViewModel viewModel)
+        {
+            InitializeComponent();
+
+            BindingContext = this.viewModel = viewModel;
+        }
+
         public ItemDetailPage()
         {
             InitializeComponent();
-        }
 
-        async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("..", false);
+            var item = new Item
+            {
+                Text = "Item 1",
+                Description = "This is an item description."
+            };
+
+            viewModel = new ItemDetailViewModel(item);
+            BindingContext = viewModel;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Shopanizer;
-using Windows.Foundation;
+﻿using Windows.Foundation;
 using Windows.Foundation.Metadata;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -12,7 +11,7 @@ namespace SmartHotel.Clients.UWP
         {
             InitializeComponent();
 
-            LoadApplication(new Clients.App());
+            LoadApplication(new MDPSource.App());
         }
 
     }
